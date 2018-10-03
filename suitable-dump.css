@@ -1,0 +1,30 @@
+@keyframes argh-my-eyes {
+    0%   { background-color: #ff0e0e; }
+    25% { background-color: #001eff; }
+    50% { background-color: #ff0e0e; }
+    75% { background-color: #001eff; }
+    100% { background-color: #ff0e0e; }
+}
+
+body {
+    animation: argh-my-eyes 1s infinite;
+}
+
+h1 {
+    font-family: Helvetica, Arial;
+    font-size: 200px;
+    text-align: center;
+    color: white;
+    margin: 0;
+    text-shadow:
+        -2px -2px 0 #000,  
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000;
+}
+
+.cop {
+    display: block;
+    margin: 40px auto 20px;
+    width: 200px;
+}
