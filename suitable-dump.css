@@ -35,3 +35,7 @@ h1 {
     height: 600px;
     width: 600px;
 }
+
+#info-window-text {
+    font-weight: 500;
+}

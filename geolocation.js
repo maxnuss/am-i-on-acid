@@ -2,7 +2,7 @@ var map, infoWindow;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
-          zoom: 6
+          zoom: 14
         });
         infoWindow = new google.maps.InfoWindow;
 
@@ -15,9 +15,23 @@ var map, infoWindow;
             };
 
             infoWindow.setPosition(pos);
-            infoWindow.setContent('Police are being dispatched to your location');
+            infoWindow.setContent('<div id="info-window-text">Police are being dispatched to your location</div>');
             infoWindow.open(map);
             map.setCenter(pos);
+
+            var copCarDif = .01;
+            var copCarLat = pos.lat - copCarDif;
+            var copCarLng = pos.lng + copCarDif;
+            var copCarPos = {
+                lat: copCarLat,
+                lng: copCarLng,
+            };
+            var copCar = new google.maps.Marker({
+                position: copCarPos,
+                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/info-i_maps.png',
+                map: map,
+            });
+
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
