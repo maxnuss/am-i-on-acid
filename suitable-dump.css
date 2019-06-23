@@ -28,3 +28,7 @@ h1 {
     margin: 40px auto 20px;
     width: 200px;
 }
+
+#map {
+    height: 100%;
+}
