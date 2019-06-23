@@ -30,5 +30,8 @@ h1 {
 }
 
 #map {
-    height: 100%;
+    display: block;
+    margin: 100px auto 0px;
+    height: 600px;
+    width: 600px;
 }
