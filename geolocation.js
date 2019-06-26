@@ -21,14 +21,14 @@ function initMap() {
 
             var copCarDif = .01;
             var copCarLat = pos.lat - copCarDif;
-            var copCarLng = pos.lng + copCarDif;
+            var copCarLng = pos.lng - copCarDif;
             var copCarPos = {
                 lat: copCarLat,
                 lng: copCarLng,
             };
             var copCar = new google.maps.Marker({
                 position: copCarPos,
-                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/info-i_maps.png',
+                icon: 'copcar-icon.gif',
                 map: map,
             });
 
