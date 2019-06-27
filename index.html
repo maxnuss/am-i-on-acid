@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="UTF-8">
     <title>Busted!</title>
     <link rel="stylesheet" type="text/css" href="suitable-dump.css">
     <link rel="icon" href="favicon.png">
   </head>
   <body>
+    <div id="cover"><p id="cover-text">Please enable location tracking</p></div>
     <img src="cop.png" class="cop">
     <h1>BUSTED</h1>
+    <div id="map"></div>
+    <script src="geolocation.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0FPHxSWJ2l0A0srnAcTClGFcE-04XVwU&callback=initMap"></script>
   </body>
 </html>
