@@ -32,8 +32,7 @@ function initMap() {
                 map: map,
             });
 
-            var cover = document.getElementById('cover');
-            cover.remove();
+            removeCover();
 
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -41,6 +40,7 @@ function initMap() {
     } else {
         // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
+        removeCover();
     }
 }
 
@@ -50,4 +50,9 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: The Geolocation service failed.' :
         'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
+}
+
+function removeCover() {
+    var cover = document.getElementById('cover');
+    cover.remove();
 }
