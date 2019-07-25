@@ -13,6 +13,9 @@ function initMap() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
+            
+            removeCover();
+
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('<div id="info-window-text">Police are being dispatched to your location</div>');
@@ -31,8 +34,6 @@ function initMap() {
                 icon: 'copcar-icon.gif',
                 map: map,
             });
-
-            removeCover();
 
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -53,6 +54,5 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function removeCover() {
-    var cover = document.getElementById('cover');
-    cover.remove();    
+    document.getElementById("cover").style.display = "none";  
 }

@@ -57,6 +57,7 @@ h1 {
     left: 0;
     background: #000;
     z-index: 9999;
+    display: block;
 }
 
 #cover-text {
