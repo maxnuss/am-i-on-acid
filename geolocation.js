@@ -54,5 +54,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 function removeCover() {
     var cover = document.getElementById('cover');
-    cover.remove();
+    cover.remove();    
+	document.getElementById("body").classList.add('animate-body');
 }
