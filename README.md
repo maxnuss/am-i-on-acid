@@ -16,6 +16,4 @@ The lack of payoff is its own reward.
 
 1. Assuming you have `origin` pointing to `git@github.com:maxnuss/am-i-on-acid.git`. Verify by running `git remote -v`
 
-2. This requires installing the Heroku command line tool which can be found [here](https://devcenter.heroku.com/articles/heroku-cli). Then the Heroku app can be set as a remove with `heroku git:remote -a am-i-on-acid` if your heroku accound has been added tot his project's.
-
-
+2. This requires installing the Heroku command line tool which can be found [here](https://devcenter.heroku.com/articles/heroku-cli). Then the Heroku app can be set as a remote with `heroku git:remote -a am-i-on-acid` if your Heroku accound has been added to this project.
