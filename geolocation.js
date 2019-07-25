@@ -4,7 +4,7 @@ function initMap() {
         center: { lat: -34.397, lng: 150.644 },
         zoom: 14
     });
-    infoWindow = new google.maps.InfoWindow;
+    infoWindow = new google.maps.InfoWindow();
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -19,7 +19,7 @@ function initMap() {
             infoWindow.open(map);
             map.setCenter(pos);
 
-            var copCarDif = .01;
+            var copCarDif = 0.01;
             var copCarLat = pos.lat - copCarDif;
             var copCarLng = pos.lng - copCarDif;
             var copCarPos = {
