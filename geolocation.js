@@ -66,12 +66,14 @@ function flyHelicopter(helicopterMarker, helicopterPos, pos, helicopterDif) {
     var increment = Math.PI / 10;
     var newLat;
     var newLng;
+    var i = 0;
     
-    while (true) {
+    while (i < 10) {
         angle += increment;
         newLat = pos.lat - radius * Math.sin(angle);
         newLng = pos.lng + radius * Math.cos(angle);
         helicopterMarker.setPosition( new google.maps.LatLng( newLat, newLng ) );
+        i++
     }
 }
 
