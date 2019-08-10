@@ -68,7 +68,7 @@ function flyHelicopter(helicopterMarker, helicopterPos, pos, helicopterDif) {
     var newLng;
     var i = 0;
     
-    while (i < 10) {
+    while (i < 100) {
         angle += increment;
         newLat = pos.lat - radius * Math.sin(angle);
         newLng = pos.lng + radius * Math.cos(angle);
