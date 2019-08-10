@@ -72,7 +72,9 @@ function flyHelicopter(helicopterMarker, helicopterPos, pos, helicopterDif) {
         angle += increment;
         newLat = pos.lat - radius * Math.sin(angle);
         newLng = pos.lng + radius * Math.cos(angle);
-        helicopterMarker.setPosition( new google.maps.LatLng( newLat, newLng ) );
+        setTimeout(function(){ 
+            helicopterMarker.setPosition(new google.maps.LatLng(newLat, newLng));
+        }, 200);
         i++
     }
 }
