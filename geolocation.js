@@ -68,11 +68,12 @@ function flyHelicopter(helicopterMarker, helicopterPos, pos, helicopterDif) {
     var newLng;
     var i = 0;
     
-    while (i < 10) {
+    while (i < 20) {
         angle += increment;
         newLat = pos.lat - radius * Math.sin(angle);
         newLng = pos.lng + radius * Math.cos(angle);
         setTimeout(function(){ 
+            console.log("moving helicopter");
             helicopterMarker.setPosition(new google.maps.LatLng(newLat, newLng));
         }, 200);
         i++
