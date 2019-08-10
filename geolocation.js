@@ -40,7 +40,7 @@ function initMap() {
             var helicopterLng = pos.lng - helicopterDif;
             var helicopterPos = {
                 lat: helicopterLat,
-                lng = helicopterLng,
+                lng: helicopterLng,
             }
             var helicopterMarker = new google.maps.Marker({
                 position: helicopterPos,
