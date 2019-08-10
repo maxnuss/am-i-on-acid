@@ -35,6 +35,19 @@ function initMap() {
                 map: map,
             });
 
+            var helicopterDif = 0.015;
+            var helicopterLat = pos.lat - helicopterDif;
+            var helicopterLng = pos.lng - helicopterDif;
+            var helicopterPos = {
+                lat: helicopterLat,
+                lng = helicopterLng,
+            }
+            var helicopter = new google.maps.Marker({
+                position: helicopterPos,
+                icon: 'helicopter.gif',
+                map: map,
+            });
+
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
         });
