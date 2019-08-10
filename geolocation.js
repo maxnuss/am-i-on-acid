@@ -1,4 +1,5 @@
-var map, infoWindow;
+var map, infoWindow, helicopterMarker, pos;
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -34.397, lng: 150.644 },
@@ -8,8 +9,11 @@ function initMap() {
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
+        
+        var helicopterDif = 0.015;
+        
         navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = {
+            pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
@@ -35,24 +39,24 @@ function initMap() {
                 map: map,
             });
 
-            var helicopterDif = 0.015;
             var helicopterLat = pos.lat - helicopterDif;
             var helicopterLng = pos.lng - helicopterDif;
             var helicopterPos = {
                 lat: helicopterLat,
                 lng: helicopterLng,
             }
-            var helicopterMarker = new google.maps.Marker({
+            helicopterMarker = new google.maps.Marker({
                 position: helicopterPos,
                 icon: 'helicopter-icon.jpg',
                 map: map,
             });
-            
-            flyHelicopter(helicopterMarker, helicopterPos, pos, helicopterDif);
+           
 
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
         });
+        
+        flyHelicopter(helicopterMarker, pos, helicopterDif);
     } else {
         // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
@@ -60,7 +64,7 @@ function initMap() {
     }
 }
 
-function flyHelicopter(helicopterMarker, helicopterPos, pos, helicopterDif) {
+function flyHelicopter(helicopterMarker, pos, helicopterDif) {
     var radius = Math.sqrt(Math.pow(helicopterDif, 2) * 2)
     var angle = 5 * Math.PI / 4; 
     var increment = Math.PI / 10;
