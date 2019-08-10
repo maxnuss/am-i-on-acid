@@ -42,11 +42,13 @@ function initMap() {
                 lat: helicopterLat,
                 lng = helicopterLng,
             }
-            var helicopter = new google.maps.Marker({
+            var helicopterMarker = new google.maps.Marker({
                 position: helicopterPos,
                 icon: 'helicopter.gif',
                 map: map,
             });
+            
+            flyHelicopter(helicopterMarker, helicopterPos, pos, helicopterDif);
 
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -55,6 +57,21 @@ function initMap() {
         // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
         removeCover();
+    }
+}
+
+function flyHelicopter(helicopterMarker, helicopterPos, pos, helicopterDif) {
+    var radius = Math.sqrt(Math.pow(helicopterDif, 2) * 2)
+    var angle = 5 * Math.PI / 4; 
+    var increment = Math.PI / 10;
+    var newLat;
+    var newLng;
+    
+    while (true) {
+        angle += increment;
+        newLat = pos.lat - radius * Math.sin(angle);
+        newLng = pos.lng + radius * Math.cos(angle);
+        helicopterMarker.setPosition( new google.maps.LatLng( newLat, newLng ) );
     }
 }
 
