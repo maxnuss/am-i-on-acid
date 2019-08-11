@@ -2,7 +2,7 @@ var map, infoWindow, helicopterMarker, pos;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -34.397, lng: 150.644 },
-        zoom: 14
+        zoom: 13
     });
     infoWindow = new google.maps.InfoWindow();
 
@@ -36,8 +36,8 @@ function initMap() {
             });
 
             var helicopterDif = 0.015;
-            var helicopterLat = pos.lat - helicopterDif;
-            var helicopterLng = pos.lng - helicopterDif;
+            var helicopterLat = pos.lat + helicopterDif;
+            var helicopterLng = pos.lng;
             var helicopterPos = {
                 lat: helicopterLat,
                 lng: helicopterLng,
@@ -59,7 +59,7 @@ function initMap() {
     }
 }
 
-var radius = 0.01;
+var radius = 0.015;
 var angle = 0; 
 var increment = Math.PI / 10;
 var newLat;
