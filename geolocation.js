@@ -1,4 +1,4 @@
-var map, infoWindow;
+var map, infoWindow, helicopterMarker, pos;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -34.397, lng: 150.644 },
@@ -9,7 +9,7 @@ function initMap() {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = {
+            pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
@@ -42,13 +42,11 @@ function initMap() {
                 lat: helicopterLat,
                 lng: helicopterLng,
             }
-            var helicopterMarker = new google.maps.Marker({
+            helicopterMarker = new google.maps.Marker({
                 position: helicopterPos,
                 icon: 'helicopter-icon.jpg',
                 map: map,
             });
-            
-            flyHelicopter(helicopterMarker, helicopterPos, pos, helicopterDif);
 
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -60,23 +58,23 @@ function initMap() {
     }
 }
 
-function flyHelicopter(helicopterMarker, helicopterPos, pos, helicopterDif) {
-    var radius = Math.sqrt(Math.pow(helicopterDif, 2) * 2)
-    var angle = 5 * Math.PI / 4; 
-    var increment = Math.PI / 10;
-    var newLat;
-    var newLng;
-    var i = 0;
-    
-    while (i < 20) {
-        angle += increment;
-        newLat = pos.lat - radius * Math.sin(angle);
-        newLng = pos.lng + radius * Math.cos(angle);
-        setTimeout(function(){ 
-            console.log("moving helicopter");
-            helicopterMarker.setPosition(new google.maps.LatLng(newLat, newLng));
-        }, 200);
-        i++
+google.maps.event.addListener(map, 'click', flyHelicopter);
+
+var radius = 0.01;
+var angle = 0; 
+var increment = Math.PI / 10;
+var newLat;
+var newLng;
+var i = 0;
+
+function flyHelicopter() {    
+    angle += increment;
+    newLng = pos.lng + radius * Math.sin(angle);
+    newLat = pos.lat + radius * Math.cos(angle);
+    helicopterMarker.setPosition(new google.maps.LatLng(newLat, newLng));
+    i++;
+    if (i < 100) {
+        setTimeout(flyHelicopter, 200);
     }
 }
 
