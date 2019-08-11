@@ -35,7 +35,7 @@ function initMap() {
                 map: map,
             });
 
-            var helicopterDif = 0.015;
+            var helicopterDif = 0.02;
             var helicopterLat = pos.lat + helicopterDif;
             var helicopterLng = pos.lng;
             var helicopterPos = {
@@ -59,7 +59,7 @@ function initMap() {
     }
 }
 
-var radius = 0.015;
+var radius = 0.02;
 var angle = 0; 
 var increment = Math.PI / 10;
 var newLat;
