@@ -74,6 +74,8 @@ function flyHelicopter() {
     i++;
     if (i < 100) {
         setTimeout(flyHelicopter, 200);
+    } else {
+        i = 0;
     }
 }
 
