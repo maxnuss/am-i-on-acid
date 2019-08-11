@@ -47,6 +47,7 @@ function initMap() {
                 icon: 'helicopter-icon.jpg',
                 map: map,
             });
+            google.maps.event.addListener(map, 'click', flyHelicopter);
 
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -57,8 +58,6 @@ function initMap() {
         removeCover();
     }
 }
-
-google.maps.event.addListener(map, 'click', flyHelicopter);
 
 var radius = 0.01;
 var angle = 0; 
