@@ -44,7 +44,7 @@ function initMap() {
             }
             helicopterMarker = new google.maps.Marker({
                 position: helicopterPos,
-                icon: 'helicopter.png',
+                icon: 'helicopter.gif',
                 map: map,
             });
             flyHelicopter();
