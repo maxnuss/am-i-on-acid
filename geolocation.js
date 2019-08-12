@@ -73,7 +73,7 @@ function flyHelicopter() {
     helicopterMarker.setPosition(new google.maps.LatLng(newLat, newLng));
     i++;
     if (i < 1000) {
-        setTimeout(flyHelicopter, 10);
+        setTimeout(flyHelicopter, 100);
     } else {
         i = 0;
     }
