@@ -61,7 +61,7 @@ function initMap() {
 
 var radius = 0.02;
 var angle = 0; 
-var increment = Math.PI / 10;
+var increment = Math.PI / 100;
 var newLat;
 var newLng;
 var i = 0;
@@ -72,8 +72,8 @@ function flyHelicopter() {
     newLat = pos.lat + radius * Math.cos(angle);
     helicopterMarker.setPosition(new google.maps.LatLng(newLat, newLng));
     i++;
-    if (i < 100) {
-        setTimeout(flyHelicopter, 200);
+    if (i < 1000) {
+        setTimeout(flyHelicopter, 10);
     } else {
         i = 0;
     }
